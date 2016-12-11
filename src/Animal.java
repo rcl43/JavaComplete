@@ -21,6 +21,38 @@ public class Animal {
 
     static Scanner userInput = new Scanner(System.in);
 
+    public Animal() {
+        numberOfAnimals++;
+
+        //basic mathematical operations
+        int sumOfNumbers = 3 + 1;
+        System.out.println("3 + 1 = " + sumOfNumbers);
+
+        int diffOfNumbers = 3 - 1;
+        System.out.println("3 - 1 = " + diffOfNumbers);
+
+        int multOfNumbers = 3 * 1;
+        System.out.println("3 * 1 = " + multOfNumbers);
+
+        int divOfNumbers = 3 / 1;
+        System.out.println("3 / 1 = " + divOfNumbers);
+
+        int modOfNumbers = 3 % 1;
+        System.out.println("3 % 1 = " + modOfNumbers);
+
+        //user prompt
+        System.out.print("Enter the name : \n");
+
+        //user input example
+        if(userInput.hasNextLine()){
+
+            this.setName(userInput.nextLine());
+        }
+
+        this.setFavoriteChar();
+        this.setUniqueID();
+    }
+
     public String getName() {
         return name;
     }
@@ -86,24 +118,24 @@ public class Animal {
     }
 
     public void setFavoriteChar() {
-        //Generating a random letter character
+        //Generating a random character that should be a letter.
         int randomNumber = (int) (Math.random() * 126 + 1);
         this.favoriteChar = (char) randomNumber;
 
         //if else example
         if(randomNumber == 32){
-            System.out.println(" Favorite character set to Space");
+            System.out.println("Favorite character set to Space");
         } else if (randomNumber == 10){
-            System.out.println(" Favorite character set to Newline");
+            System.out.println("Favorite character set to Newline");
         } else {
-            System.out.println(" Favorite character set to " + this.favoriteChar);
+            System.out.println("Favorite character set to " + this.favoriteChar);
         }
 
         //logical operator examples
         if((randomNumber > 97) && (randomNumber < 122)){
             System.out.println("Favorite character is a lowercase letter");
         }
-        if(((randomNumber > 97) && (randomNumber < 122))) || (((randomNumber > 64) && (randomNumber < 91))){
+        if(((randomNumber > 97) && (randomNumber < 122)) || ((randomNumber > 64) && (randomNumber < 91))){
             System.out.println("Favorite character is a letter");
         }
 
@@ -116,6 +148,7 @@ public class Animal {
             case 8:
                 System.out.println("Favorite character set to backspace");
                 break;
+
             //each case below will result in the same output.
             case 10:
             case 11:
@@ -123,10 +156,9 @@ public class Animal {
                 System.out.println("Favorite character set to backspace");
                 break;
 
-
+            default :
+                System.out.println("Favorite character is something weird");
         }
-
-
     }
 
     public double getSpeed() {
@@ -145,39 +177,85 @@ public class Animal {
         this.height = height;
     }
 
-    public Animal() {
-        numberOfAnimals++;
+    //for loop example and continue example. Prints second half.
+    protected static void countTo(int startingNumber){
 
-        //basic mathematical operations
-        int sumOfNumbers = 3 + 1;
-        System.out.println("3 + 1 = " + sumOfNumbers);
+        for(int i = startingNumber; i <= 100; i++){
 
-        int diffOfNumbers = 3 - 1;
-        System.out.println("3 - 1 = " + diffOfNumbers);
+            if(i == 90) continue;
 
-        int multOfNumbers = 3 * 1;
-        System.out.println("3 * 1 = " + multOfNumbers);
+            System.out.println(i);
+        }
+    }
 
-        int divOfNumbers = 3 / 1;
-        System.out.println("3 / 1 = " + divOfNumbers);
+    //while loop example. Prints first half
+    protected static String printNumbers(int maxNumbers){
 
-        int modOfNumbers = 3 % 1;
-        System.out.println("3 % 1 = " + modOfNumbers);
+        int i = 1;
+        while(i < (maxNumbers / 2)){
 
-        //user prompt
-        System.out.print("Enter the name : \n");
+            System.out.println(i);
+            i++;
 
-        //user input example
-        if(userInput.hasNextLine()){
-
-            this.setName(userInput.nextLine());
+            //loop break example.
+            if(i == (maxNumbers / 2)) break;
         }
 
-        this.setFavoriteChar();
-        this.setUniqueID();
+        Animal.countTo(maxNumbers / 2);
+         return "End of printNumbers";
+    }
+
+    // Do while example
+    protected static void guessMyNumber(){
+
+        int number;
+
+        do{
+            System.out.println("Guess Number up to 100");
+
+            while(!userInput.hasNextInt()){
+
+                String numberEntered = userInput.next();
+                System.out.printf("%s is not a number\n", numberEntered);
+            }
+
+            number = userInput.nextInt();
+        } while (number!=50);
+    }
+
+    public String makeSound(){
+
+        return "Grrrr";
+    }
+
+    public static void  speakAnimal(Animal randAnimal){
+
+        System.out.println("Animal says " + randAnimal.makeSound());
     }
 
     public static void main(String[] args){
         Animal theAnimal  = new Animal();
+
+        //Example of arrays, multi dimensional as well.
+        int[] favoriteNumber = new int[20];
+
+        String[] stringArray = {"Random","Words","Here"};
+
+        for(String word : stringArray){
+            System.out.println(word);
+        }
+
+       /* String[][][] arrayName = {{{"000"}, {"100"}, {"200"}, {"300"},
+                {{"010"}, {"110"}, {"210"}, {"310"}},
+                {{"020"}, {"120"}, {"220"}, {"320"}}}};
+
+
+        for(int i = 0; i < arrayName.length; i++){
+            for(int j = 0; j < arrayName[i].length; j++){
+                for(int k = 0; k < arrayName[i][j].length; k++){
+                    System.out.println("| " + arrayName[i][j][k]);
+                }
+            }
+        }*/
     }
 }
