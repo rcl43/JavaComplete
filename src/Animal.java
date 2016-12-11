@@ -100,6 +100,32 @@ public class Animal {
         }
 
         //logical operator examples
+        if((randomNumber > 97) && (randomNumber < 122)){
+            System.out.println("Favorite character is a lowercase letter");
+        }
+        if(((randomNumber > 97) && (randomNumber < 122))) || (((randomNumber > 64) && (randomNumber < 91))){
+            System.out.println("Favorite character is a letter");
+        }
+
+        //ternary operator ex. if num is < 50, then which is bigger will = 50,
+        //else randomNumber will get assigned to which is bigger.
+        int whichIsBigger = (50 > randomNumber) ? 50 : randomNumber;
+
+        //switch statement example with ternary operator.
+        switch (randomNumber){
+            case 8:
+                System.out.println("Favorite character set to backspace");
+                break;
+            //each case below will result in the same output.
+            case 10:
+            case 11:
+            case 12:
+                System.out.println("Favorite character set to backspace");
+                break;
+
+
+        }
+
 
     }
 
