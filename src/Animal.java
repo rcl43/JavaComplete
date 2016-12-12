@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -242,20 +243,34 @@ public class Animal {
         String[] stringArray = {"Random","Words","Here"};
 
         for(String word : stringArray){
-            System.out.println(word);
+            System.out.print(word + " ");
         }
+        //Add line for style purposes.
+        System.out.println();
 
-       /* String[][][] arrayName = {{{"000"}, {"100"}, {"200"}, {"300"},
+        //multi dimensional array
+        String[][][] arrayName = {{{"000"}, {"100"}, {"200"}, {"300"}},
                 {{"010"}, {"110"}, {"210"}, {"310"}},
-                {{"020"}, {"120"}, {"220"}, {"320"}}}};
+                {{"020"}, {"120"}, {"220"}, {"320"}}};
 
-
+        //print out multidimensional array.
         for(int i = 0; i < arrayName.length; i++){
+
             for(int j = 0; j < arrayName[i].length; j++){
+
                 for(int k = 0; k < arrayName[i][j].length; k++){
-                    System.out.println("| " + arrayName[i][j][k]);
+
+                    System.out.print("| " + arrayName[i][j][k] + " ");
+
                 }
             }
-        }*/
+            System.out.println("|");
+        }
+
+        String[] cloneOfArray = Arrays.copyOf(stringArray, 3);
+
+        System.out.println(Arrays.toString(cloneOfArray));
+
+        System.out.println(Arrays.binarySearch(cloneOfArray, "Random"));
     }
 }
