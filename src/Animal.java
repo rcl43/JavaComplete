@@ -267,10 +267,13 @@ public class Animal {
             System.out.println("|");
         }
 
+        //Cloning an array
         String[] cloneOfArray = Arrays.copyOf(stringArray, 3);
 
+        //printing out the newly cloned array.
         System.out.println(Arrays.toString(cloneOfArray));
 
+        //searching for a value within an array. Find out what values are supposed to be returned.
         System.out.println(Arrays.binarySearch(cloneOfArray, "Random"));
     }
 }
