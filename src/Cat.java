@@ -6,6 +6,7 @@ public class Cat extends Animal {
     public Cat() {
     }
 
+    //overloading a method Cat will Meow when a Cat type of animal class is called.
     public String makeSound(){
         return "Meow";
     }
