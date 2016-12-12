@@ -15,12 +15,12 @@ public class Cat extends Animal {
 
         Animal fido = new Dog();
         Animal luna = new Cat();
-        String str = "Slim Shady";
+        String str = "The real Slim Shady";
 
         String[] strArray = str.split(" ");
 
         for(int i = strArray.length - 1; i >= 0; i--)
-            System.out.print(strArray[i]);
+            System.out.print(strArray[i] + " ");
         System.out.println();
 
         Animal[] theAnimals = new Animal[10];
